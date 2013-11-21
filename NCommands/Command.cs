@@ -4,9 +4,12 @@ namespace NCommands
 {
     public abstract class Command : ICommand
     {
-        public abstract string Name { get; }
+        public virtual bool CanExecute()
+        {
+            return true;
+        }
 
-        public abstract bool CanExecute();
+        public abstract void Execute();
 
         public IDictionary<string, dynamic> Parameters { get; set; }
     }

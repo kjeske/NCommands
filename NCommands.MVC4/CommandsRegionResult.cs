@@ -11,7 +11,7 @@ namespace NCommands.MVC
         public CommandsRegionResult(CommandsRegionData item, UrlHelper urlHelper, RouteValueDictionary routeData)
         {
             DisplayName = item.DisplayName;
-            Url = item.Action(urlHelper, routeData);
+            Url = item.Execute(urlHelper, routeData);
         }
 
         public string DisplayName { get; set; }

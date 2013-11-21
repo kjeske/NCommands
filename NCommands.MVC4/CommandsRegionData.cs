@@ -8,7 +8,7 @@ namespace NCommands.MVC
     {
         public string DisplayName { get; set; }
 
-        public Func<UrlHelper, RouteValueDictionary, string> Action { get; set; }
+        public Func<UrlHelper, RouteValueDictionary, string> Execute { get; set; }
 
         internal string CommandName { get; set; }
     }

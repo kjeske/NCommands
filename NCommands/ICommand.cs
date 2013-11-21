@@ -4,10 +4,10 @@ namespace NCommands
 {
     public interface ICommand
     {
-        string Name { get; }
+        IDictionary<string, dynamic> Parameters { get; set; }
 
         bool CanExecute();
 
-        IDictionary<string, dynamic> Parameters { get; set; }
+        void Execute();
     }
 }

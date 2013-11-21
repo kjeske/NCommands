@@ -6,7 +6,7 @@ using System.Web.Routing;
 namespace NCommands.MVC
 {
     /// <summary>
-    /// Instance per application
+    /// Provides command's regions management
     /// </summary>
     public class CommandsRegionsManager
     {
@@ -24,7 +24,7 @@ namespace NCommands.MVC
             _items = new Dictionary<string, IList<CommandsRegionData>>();
         }
 
-        public void Attach(string regionName, string commandName, string displayName, Func<UrlHelper, IDictionary<string, dynamic>, string> url)
+        public void Attach(string regionName, string commandName, string display, Func<UrlHelper, IDictionary<string, dynamic>, string> execute)
         {
             if (!_items.ContainsKey(regionName))
             {
@@ -33,8 +33,8 @@ namespace NCommands.MVC
 
             var regionData = new CommandsRegionData
             {
-                DisplayName = displayName,
-                Action = url,
+                DisplayName = display,
+                Execute = execute,
                 CommandName = commandName
             };
 
