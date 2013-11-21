@@ -61,7 +61,11 @@ namespace NCommands.MVC
                     continue;
                 }
 
-                result.Add(new CommandsRegionResult(commandData, urlHelper, routeData));
+                result.Add(new CommandsRegionResult
+                {
+                    DisplayName = commandData.DisplayName,
+                    Url = commandData.Execute(urlHelper, routeData)
+                });
             }
 
             return result;

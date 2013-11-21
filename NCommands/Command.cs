@@ -6,11 +6,13 @@ namespace NCommands
     {
         public IDictionary<string, dynamic> Parameters { get; set; }
 
+        public dynamic Result { get; protected set; }
+
+        public abstract void Execute();
+
         public virtual bool CanExecute()
         {
             return true;
         }
-
-        public abstract void Execute();
     }
 }
