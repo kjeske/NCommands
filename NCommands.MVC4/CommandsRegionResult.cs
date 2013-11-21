@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace NCommands.MVC
 {
@@ -8,10 +8,10 @@ namespace NCommands.MVC
         public CommandsRegionResult()
         { }
 
-        public CommandsRegionResult(CommandsRegionData item, UrlHelper urlHelper, IDictionary<string, dynamic> parameters)
+        public CommandsRegionResult(CommandsRegionData item, UrlHelper urlHelper, RouteValueDictionary routeData)
         {
             DisplayName = item.DisplayName;
-            Url = item.Action(urlHelper, parameters);
+            Url = item.Action(urlHelper, routeData);
         }
 
         public string DisplayName { get; set; }
