@@ -24,7 +24,7 @@ namespace NCommands.MVC
             _items = new Dictionary<string, IList<CommandsRegionData>>();
         }
 
-        public void Attach(string regionName, string commandName, string display, Func<UrlHelper, IDictionary<string, dynamic>, string> execute)
+        public void Attach(string regionName, string commandName, string display, Func<UrlHelper, RouteValueDictionary, string> execute)
         {
             if (!_items.ContainsKey(regionName))
             {

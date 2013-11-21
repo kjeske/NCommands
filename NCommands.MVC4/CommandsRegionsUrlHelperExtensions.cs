@@ -6,17 +6,20 @@ namespace NCommands.MVC
 {
     public static class CommandsRegionsUrlHelperExtensions
     {
-         public static IEnumerable<CommandsRegionResult> Commands(this UrlHelper urlHelper, string regionName, object routeData)
+         public static IEnumerable<CommandsRegionResult> Commands(this UrlHelper urlHelper, string regionName, object routeData = null)
          {
              var routeDictionary = new RouteValueDictionary(urlHelper.RequestContext.RouteData.Values);
 
-             var passedRouteDictionary = new RouteValueDictionary(routeData);
-
-             foreach (var item in passedRouteDictionary)
+             if (routeData != null)
              {
-                 if (!routeDictionary.ContainsKey(item.Key))
+                 var passedRouteDictionary = new RouteValueDictionary(routeData);
+
+                 foreach (var item in passedRouteDictionary)
                  {
-                     routeDictionary.Add(item.Key, item.Value);
+                     if (!routeDictionary.ContainsKey(item.Key))
+                     {
+                         routeDictionary.Add(item.Key, item.Value);
+                     }
                  }
              }
 
